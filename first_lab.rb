@@ -19,3 +19,19 @@ puts str1 << "may never die " << 220 #5
 puts str1 <=> str2 #6
 puts str1 == str2 #7
 puts str1[5]#8
+#Задание №3
+puts "Введите свой любимый язык программирования:"
+name=gets.chomp()
+Построение условного оператора с использованием case when
+case name
+when "Ruby"
+  puts "Подлиза!"
+when "C++"
+  puts "Скоро будет Ruby :)"
+when "C#"
+  puts "Это вы пока Ruby не видели :)"
+when "Python"
+  puts "Ruby!"
+when "Prolog"
+  puts "Уже близко..."
+end
