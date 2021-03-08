@@ -5,19 +5,28 @@ end
 num 5
 
 #Задание №6
-def digits n
+def digits_sum n
   s=0
-  m=1
   while !(n==0)
     dig=n%10
     s+=dig
+    n=n/10
+  end
+  puts(print "Сумма цифр числа: ", s)
+end
+
+def digits_mult n #2
+  m=1
+  while !(n==0)
+    dig=n%10
     m*=dig
     n=n/10
   end
-  puts(print "Сумма = ", s)
-  puts(print "Произведение = " , m)
+  puts(print "Произведение цифр числа: " , m)
 end
-digits 252
+
+digits_sum 252
+digits_mult 589
 
 def max_dig n
   max=n%10
@@ -28,8 +37,9 @@ def max_dig n
     end
     n=n/10
   end
-  puts(print "Максимальная цифра числа = ",max)
+  puts(print "Максимальная цифра числа: ",max)
 end
+
 def min_dig n
   min=n%10
   n=n/10;
@@ -39,8 +49,30 @@ def min_dig n
     end
     n=n/10
   end
-  puts(print "Минимальная цифра числа = ", min)
+  puts(print "Минимальная цифра числа: ", min)
 end
 
 max_dig 12985
 min_dig 583
+
+#Задание №7
+
+#Метод 1
+
+def simple n
+  for i in 2..Math.sqrt(n)
+      return false   if n%i==0
+  end
+  return true
+end
+
+def simple_sum n
+  sum=0
+  for i in 2..n/2
+    if (n%i==0&&simple(i)==true)
+      sum+=i
+    end
+  end
+  puts (print "Сумма простых делителей числа: ", sum)
+end
+simple_sum 6
