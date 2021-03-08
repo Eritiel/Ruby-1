@@ -1,9 +1,10 @@
-
+#Задание №5
 def num n
   puts(n)
 end
 num 5
 
+#Задание №6
 def digits n
   s=0
   m=1
