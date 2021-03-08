@@ -76,3 +76,14 @@ def simple_sum n
   puts (print "Сумма простых делителей числа: ", sum)
 end
 simple_sum 6
+
+#Метод 2
+
+def counter n
+  k=0
+  for i in n.digits
+    k += (!(i%2==0)&&i>3) ? 1 : 0
+  end
+  puts(print "Количество нечетных цифр числа, больших 3: ", k)
+end
+counter 55
