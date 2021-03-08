@@ -5,6 +5,7 @@ def greetings(name)
   print("Приветствую, ", name)
 end
 puts greetings("Кирилл")
+
 =begin
 Здесь будут рассмотрены методы класса string
 =end
@@ -20,9 +21,8 @@ puts str1 <=> str2 #6
 puts str1 == str2 #7
 puts str1[5]#8
 #Задание №3
-puts "Введите свой любимый язык программирования:"
+puts "Введите свой любимый язык программирования"
 name=gets.chomp()
-#Построение условного оператора с использованием case when
 case name
 when "Ruby"
   puts "Подлиза!"
@@ -35,3 +35,21 @@ when "Python"
 when "Prolog"
   puts "Уже близко..."
 end
+=begin
+if name=="Ruby"
+  puts "Подлиза!"
+elsif name=="C++"
+  puts "Скоро будет Ruby :)"
+elsif name=="C#"
+  puts "Это вы пока Ruby не видели :)"
+elsif name=="Python"
+  puts "Ruby!"
+elsif name=="Prolog"
+  puts "Уже близко..."
+end
+=end
+#Задание №4
+puts"Введите команду операционной системы: "
+system STDIN.gets
+puts "Введите команду Ruby: "
+eval STDIN.gets
