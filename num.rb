@@ -87,3 +87,24 @@ def counter n
   puts(print "Количество нечетных цифр числа, больших 3: ", k)
 end
 counter 55
+
+#Метод 3
+
+def sum_dig n
+  s=0
+  for i in n.digits
+    s+=i
+  end
+  return s
+end
+
+def mult n
+  m=1
+  for i in 1..n/2
+    if(n%i==0)
+      m*=(sum_dig(i)<sum_dig(n)) ? i : 1
+    end
+  end
+  puts(print "Произведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа: ", m)
+end
+mult 57
