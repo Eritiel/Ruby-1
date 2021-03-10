@@ -7,19 +7,13 @@ num 5
 
 #Задание №6
 def digits_sum n
-  s=0
-  for i in n.digits
-    s+=i
-  end
-  puts(print "Сумма цифр числа: ", s)
+  s=n.digits.inject {|sum, num| sum+num}
+  puts(print "Сумма цифр числа #{n}: ", s)
 end
 
 def digits_mult n #2
-  m=1
-  for i in n.digits
-    m*=i
-  end
-  puts(print "Произведение цифр числа: " , m)
+  m=n.digits.inject(1) {|prod, num| prod*=num}
+  puts(print "Произведение цифр числа #{n}: " , m)
 end
 
 digits_sum 252
@@ -28,12 +22,12 @@ digits_mult 589
 def max_dig n
   ma=n.digits.to_a.max
 
-  puts(print "Максимальная цифра числа: ",ma)
+  puts(print "Максимальная цифра числа #{n}: ",ma)
 end
 
 def min_dig n
   mi=n.digits.to_a.min
-  puts(print "Минимальная цифра числа: ", mi)
+  puts(print "Минимальная цифра числа #{n}: ", mi)
 end
 
 max_dig 12985
@@ -51,9 +45,8 @@ def simple n
 end
 =end
 def simple_sum n
-  sum=0
   sum=n.prime_division.inject(0){|s, num| s+=num[0]}
-  puts (print "Сумма простых делителей числа: ", sum)
+  puts (print "Сумма простых делителей числа #{n}: ", sum)
 end
 simple_sum 30
 
@@ -61,30 +54,23 @@ simple_sum 30
 
 def counter n
     k = n.digits.find_all {|elem| (elem.odd?)&&(elem>3)}
-  puts(print "Количество нечетных цифр числа, больших 3: ", k.size)
+  puts(print "Количество нечетных цифр числа #{n}, больших 3: ", k.size)
 end
 counter 55
 
 #Метод 3
 
 def sum_dig n
-  s=0
-  for i in n.digits
-    s+=i
-  end
+  s=n.digits.inject(1) {|sum, num| sum+=num}
   return s
 end
 
+
 def mult n
-  m=1
-  for i in 1..n/2
-    if(n%i==0)
-      m*=(sum_dig(i)<sum_dig(n)) ? i : 1
-    end
-  end
-  puts(print "Произведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа: ", m)
+      m=(1..n/2).inject(1){|prod, i| prod*=((sum_dig(i)<sum_dig(n))&&((n%i).zero?)) ? i : 1}
+  puts(print "Произведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа #{n}: ", m)
 end
-mult 57
+mult 225
 
 #Задание №8
 def select
@@ -116,6 +102,7 @@ def select
     puts ("5. Вызов функции поиска суммы простых делителей числа; ")
     puts ("6. Вызов функции поиска количества нечетных цифр числа, больших 3; ")
     puts ("7. Вызов функции поиска прозведения таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа")
+    select
   end
 end
 select
