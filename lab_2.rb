@@ -37,9 +37,21 @@ def  input n
   #Способ №1
   puts "arr << elem"
   puts(print arr << gets.to_i)
-
-
-
-
+  #Способ №2
+  puts "arr + other_arr"
+  puts(print arr+=[6])
+  #Способ №3
+  puts "arr.push(elem)"
+  puts (print arr.push(gets.to_i))
+  #Способ №4
+  puts "arr[last_i+1]=elem"
+  arr[arr.length]=gets.to_i
+  puts(print arr)
+  #Cпособ №5
+  puts "arr.insert elem"
+  puts(print arr.insert(7,9))
+  #Способ №6
+  puts "arr.unshift(elem)"
+  puts (print arr.unshift(1))
 end
 input 3
