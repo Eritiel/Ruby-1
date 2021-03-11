@@ -1,7 +1,8 @@
 #Задание #2
+=begin
 puts "Введите количество элементов массива и сами элементы"
 arr=Array.new(gets.to_i){|i| gets.to_i}
-puts 
+
 def sum arr
   s=arr.inject {|sum, elem| sum+=elem}
 puts(print "Сумма элементов массива = ", s)
@@ -26,3 +27,19 @@ sum arr
 mult arr
 max arr
 min arr
+=end
+
+#Задание №3
+def  input n
+  puts "Введите элементы массива: "
+  arr=Array.new(n){|i| gets.to_i}
+  puts(print arr)
+  #Способ №1
+  puts "arr << elem"
+  puts(print arr << gets.to_i)
+
+
+
+
+end
+input 3
