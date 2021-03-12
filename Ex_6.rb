@@ -48,3 +48,36 @@ def replace
   end
   puts(print arr)
 end
+
+#Задача 25
+
+ def max_in_range
+   puts "Введите количество элементов массива: "
+   size=gets.to_i
+   puts "Введите элементы массива: "
+   arr=Array.new(size) {|i| gets.to_i}
+   puts(print arr)
+   puts "Введите a: "
+   a=gets.to_i
+   puts "Введите b: "
+   b=gets.to_i
+   #if(a<arr[0]&&b>arr[arr.size-1])
+    # abort "Интервал выходит за пределы массива. Введите другие границы."
+   #else
+  puts "Искомый интервал: [#{a} ; #{b}]"
+  # end
+   max=-1
+   range=[]
+   for i in 0...arr.size
+     if (a<arr[i]&&b>arr[i])
+       range.push(arr[i])
+     end
+   end
+   for i in 0...range.size
+     if (range[i]>max)
+       max=range[i]
+     end
+   end
+   puts(print range)
+   puts(print "Максимальный элемент в диапазоне от #{a} до #{b} = ", max)
+ end
