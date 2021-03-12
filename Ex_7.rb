@@ -24,21 +24,12 @@ def replace
   puts "Введите элементы массива: "
   arr=Array.new(size) {|i| gets.to_i}
   puts(print arr)
-  min=1000000
-  res=[]
-  for i in 0...arr.size
-    if (arr[i]<min)
-      min=arr[i]
-      min_index=i
-    end
-  end
-  for j in 0...arr.size
-    if (j<min_index)
-      arr.push(arr.shift)
-    end
-  end
-  puts(print arr)
+  min=arr.min
+  min_index=arr.index(min)
+  res=arr.select{|i| arr.index(i)<min_index}.map{|x| arr.push(arr.shift)}.flatten.uniq
+  puts(print res)
 end
+
 
 #Задача 25
 
@@ -57,21 +48,13 @@ end
    #else
   puts "Искомый интервал: [#{a} ; #{b}]"
   # end
-   max=-1
-   range=[]
-   for i in 0...arr.size
-     if (a<arr[i]&&b>arr[i])
-       range.push(arr[i])
-     end
-   end
-   for i in 0...range.size
-     if (range[i]>max)
-       max=range[i]
-     end
-   end
+  range=arr.select{|elem| (a..b).include?(elem)}
+  max=arr.select{|elem| (a..b).include?(elem)}.max
    puts(print range)
    puts(print "Максимальный элемент в диапазоне от #{a} до #{b} = ", max)
  end
+
+
 
  #Задача 37
 
@@ -81,18 +64,12 @@ end
    puts "Введите элементы массива: "
    arr=Array.new(size) {|i| gets.to_i}
    puts(print arr)
-   less=[]
-   k=0
-   for i in 1...arr.size
-     if(arr[i]<arr[i-1])
-       less.push(i)
-       k+=1
-     end
-   end
+   less=(1...arr.size).select{|x| arr[x]<arr[x-1]}
+   k=(1...arr.size).select {|x| arr[x]<arr[x-1]}.size
    puts (print less)
    puts (print "Количество чисел, меньших своих левых соседей: ", k)
  end
-
+neighbours
  #Задача 49
   def simple n
     for i in 2..Math.sqrt(n)
