@@ -55,3 +55,27 @@ def  input n
   puts (print arr.unshift(1))
 end
 input 3
+
+#Задание 4
+def file
+  string=File.open('test.txt', 'r:UTF-8') {|file| file.read}
+  s=string.split('').map(&:to_i)
+  puts (print s)
+end
+
+#Задание №5
+def select n,path
+  case n
+  when 1
+    puts "Введите количество элементов массива: "
+    size=gets.to_i
+    puts "Введите элементы массива: "
+    arr=Array.new(size) {|i| gets.to_i}
+    puts(print arr)
+  when 2
+    string=File.open(path, 'r:UTF-8') {|file| file.read}
+    s=string.split('').map(&:to_i)
+    puts(print s)
+  end
+end
+select 2,'test.txt'
