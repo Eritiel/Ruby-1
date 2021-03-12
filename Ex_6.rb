@@ -81,3 +81,70 @@ end
    puts(print range)
    puts(print "Максимальный элемент в диапазоне от #{a} до #{b} = ", max)
  end
+
+ #Задача 37
+
+ def neighbours
+   puts "Введите количество элементов массива: "
+   size=gets.to_i
+   puts "Введите элементы массива: "
+   arr=Array.new(size) {|i| gets.to_i}
+   puts(print arr)
+   less=[]
+   k=0
+   for i in 1...arr.size
+     if(arr[i]<arr[i-1])
+       less.push(i)
+       k+=1
+     end
+   end
+   puts (print less)
+   puts (print "Количество чисел, меньших своих левых соседей: ", k)
+ end
+
+ #Задача 49
+  def simple n
+    for i in 2..Math.sqrt(n)
+        return false   if n%i==0
+    end
+    return true
+  end
+
+  def division
+    puts "Введите количество элементов массива: "
+    size=gets.to_i
+    puts "Введите элементы массива: "
+    arr=Array.new(size) {|i| gets.to_i}
+    puts(print arr)
+    div=[]
+    for i in 0...arr.size
+      for j in 2..arr[i]/2
+        if (arr[i]%j==0&&simple(j)==true)
+          div.push(j)
+        end
+      end
+    end
+    puts(print div.uniq.sort)
+  end
+
+  #Хаб
+
+ def hub
+   puts "Введите номер решаемой задачи"
+   n=gets.to_i
+   case n
+   when 1
+     counter_after_max()
+   when 13
+     replace()
+   when 25
+     max_in_range()
+   when 37
+     neighbours()
+   when 49
+     division()
+   else
+     puts ("У данной программы 5 варианта параметров: 1, 13, 25, 37, 49 ")
+   end
+ end
+ hub
