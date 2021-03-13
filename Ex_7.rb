@@ -1,4 +1,4 @@
-
+require 'prime'
 #Задача 1
 
 def count_after_max
@@ -69,14 +69,8 @@ end
    puts (print less)
    puts (print "Количество чисел, меньших своих левых соседей: ", k)
  end
-neighbours
+
  #Задача 49
-  def simple n
-    for i in 2..Math.sqrt(n)
-        return false   if n%i==0
-    end
-    return true
-  end
 
   def division
     puts "Введите количество элементов массива: "
@@ -84,15 +78,8 @@ neighbours
     puts "Введите элементы массива: "
     arr=Array.new(size) {|i| gets.to_i}
     puts(print arr)
-    div=[]
-    for i in 0...arr.size
-      for j in 2..arr[i]/2
-        if (arr[i]%j==0&&simple(j)==true)
-          div.push(j)
-        end
-      end
-    end
-    puts(print div.uniq.sort)
+    div=arr.map{|elem| elem.prime_division}.flatten.uniq.reject{|item| item==1}
+    puts(print div)
   end
 
   #Хаб
@@ -102,16 +89,22 @@ neighbours
    n=gets.to_i
    case n
    when 1
+     puts "Задача №1"
      counter_after_max()
    when 13
+     puts "Задача №13"
      replace()
    when 25
+     puts "Задача №25"
      max_in_range()
    when 37
+     puts "Задача №37"
      neighbours()
    when 49
+     puts "Задача №49"
      division()
    else
      puts ("У данной программы 5 варианта параметров: 1, 13, 25, 37, 49 ")
    end
  end
+ hub
