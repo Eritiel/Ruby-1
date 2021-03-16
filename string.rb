@@ -11,7 +11,7 @@ puts(print "Максимальное значение в строке #{s} = ", 
 def rus
   str="ghfkgjаопщщкрерлg"
   amount=str.scan(/[А-я]/).size
-  puts(print "Количество русский букв в строке #{str} = ", amount)
+  puts(print "Количество русских букв в строке #{str} = ", amount)
 end
 
 #Задача 9
@@ -57,3 +57,46 @@ def search_dates
   puts str.scan(/([0-2]\d|3[0-1]) (0[1-9]|1[0-2]|[я,Я]нвар[ь,я]|[ф,Ф]еврал[ь,я]|[м,М]ар[т]|Март[а]|[а,А]прел[ь,я]|[м,М]а[й,я]|[и,И]юн[ь,я]|[и,И]юл[ь,я]|[а,А]вгус[т]|[а,А]вгуст[а]|[с,С]ентябр[ь,я]|[о,О]ктябр[ь,я]|[н,Н]оябр[ь,я]|[д,Д]екабр[ь,я]) (\d{4})/).map{|e| e.join(' ')}.join(", ")
 end
 search_dates
+
+#Задание №11
+
+#Задача 1
+def max_num
+  s=String.new(str="5 8 99.7 99.6 55 6 1 9 3")
+  max=s.split(" ").each{|i| i.to_f}.max
+  puts(print "Максимальное значение в строке '#{s}' = ", max)
+end
+
+
+#Задача 9
+def min_rat
+  s=String.new(str="101 10 9.5 99.6")
+  min=s.split(" ").each{|i| i.to_f}.min
+  puts(print "Минимальное значение в строке '#{s}' = ", min)
+end
+
+#Задача 18
+def max_number_row
+  s=String.new(str="ghuy345gll5674g33g")
+  amount=s.split(/[a-zA-Z]/).uniq.map{|i| i.size}.max
+  puts (print "Наибольшее количество идущих подряд цифр в строке '#{s}' = ", amount)
+end
+
+def menu
+  puts "Введите номер решаемой задачи"
+  n=gets.to_i
+  case n
+  when 1
+    puts "Задача №1"
+    max_num()
+  when 9
+    puts "Задача №9"
+    min_rat()
+  when 18
+    puts "Задача №18"
+    max_number_row()
+  else
+    puts ("У данной программы 3 варианта параметров: 1, 9, 18")
+  end
+end
+menu
