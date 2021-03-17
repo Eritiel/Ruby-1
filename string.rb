@@ -99,4 +99,12 @@ def menu
     puts ("У данной программы 3 варианта параметров: 1, 9, 18")
   end
 end
-menu
+
+#Задание №12
+
+def str_list
+  string=File.open('test.txt', 'r:UTF-8') {|file| file.read}
+  s=string.split(' ').map{|i| i.size}.sort{|a,b|b<=>a}
+  puts (print s)
+end
+str_list
