@@ -104,7 +104,16 @@ end
 
 def str_list
   string=File.open('test.txt', 'r:UTF-8') {|file| file.read}
-  s=string.split(' ').map{|i| i.size}.sort{|a,b|b<=>a}
+  s=string.split(' ').sort_by{|i| i.size}
   puts (print s)
 end
 str_list
+
+#Задание №13
+
+def str_words
+  string=File.open('test.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+  s=string.sort_by{|i| i.split().size}
+  puts (print s)
+end
+str_words
