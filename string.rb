@@ -135,3 +135,11 @@ def sort_mean
   puts (print s)
 end
 sort_mean
+
+#Задача 7
+def sort_var
+  string=File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+  s=string.sort_by{|i| ((i.scan(/([aeiouy]|[AEIOUY])([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])/).size)-(i.scan(/([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])([aeiouy]|[AEIOUY])/).size)).abs}
+  puts (print s)
+end
+sort_var
