@@ -62,19 +62,19 @@ search_dates
 
 #Задача 1
 def max_num
-  s=String.new(str="5 8 99.7 99.6 55 6 1 9 3")
-  max=s.split(" ").each{|i| i.to_f}.max
+  s=String.new(str="5.5 -1.3 11.6 9.05")
+  max=s.scan(/\-\d+\.\d+|\d+\.\d+/).map{ |n| n.to_f }.max
   puts(print "Максимальное значение в строке '#{s}' = ", max)
 end
-
+max_num
 
 #Задача 9
 def min_rat
-  s=String.new(str="101 10 9.5 99.6")
-  min=s.split(" ").each{|i| i.to_f}.min
+  s=String.new(str="5/2 1/3 5/4")
+  min=s.scan(/[-+]?\d+\/(?:\d{2,}|[1-9])/).map{ |i| i.split("/").map{ |j| j.to_i } }.map{ |i| Rational(i[0], i[1]) }.min
   puts(print "Минимальное значение в строке '#{s}' = ", min)
 end
-
+min_rat
 #Задача 18
 def max_number_row
   s=String.new(str="ghuy345gll5674g33g")
@@ -117,3 +117,11 @@ def str_words
   puts (print s)
 end
 str_words
+
+#Задание №14
+def sort_words_after_nums
+  string=File.open('test.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+  s=string.sort_by{|i| i.scan(/\d+\s+([a-zA-Z]|[а-яА-Я])+/).size}
+  puts (print s)
+end
+sort_words_after_nums
