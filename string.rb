@@ -125,3 +125,13 @@ def sort_words_after_nums
   puts (print s)
 end
 sort_words_after_nums
+
+#Задание №15
+
+#Задача 1
+def sort_mean
+  string=File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+  s=string.sort_by{|i| ((i.scan(/([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])/).size.to_f/i.scan(/\w/).size.to_f)-(i.scan(/([aeiouy]|[AEIOUY])/).size.to_f/i.scan(/\w/).size.to_f)).abs}
+  puts (print s)
+end
+sort_mean
