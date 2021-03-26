@@ -143,3 +143,13 @@ def sort_var
   puts (print s)
 end
 sort_var
+
+#Задача 10
+
+def triplet
+  count=0
+  string=File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+  s=string.sort_by{|i| i.delete(" ").each_char.each_cons(3){|s| p s.join==s.join.reverse}}
+  puts( print s)
+end
+triplet
