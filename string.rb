@@ -152,4 +152,21 @@ def triplet
   s=string.sort_by{|i| i.delete(" ").each_char.each_cons(3){|s| p s.join==s.join.reverse}}
   puts( print s)
 end
-triplet
+
+def ex_select
+  puts "Введите номер решаемой задачи"
+  n=gets.to_i
+  case n
+  when 1
+    puts "Задача №1"
+    sort_mean()
+  when 7
+    puts "Задача №7"
+    sort_var()
+  when 10
+    puts "Задача №10"
+    triplet()
+  else
+    puts ("У данной программы 3 варианта параметров: 1, 7, 10")
+  end
+end
