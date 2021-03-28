@@ -1,6 +1,6 @@
 class Employee
-  attr_reader :last_job,:last_job_salary,:phone
-  attr_accessor :surname,:first_name,:fath,:birth,:address,:mail,:passport,:spec,:job_name,:exp
+  attr_reader :last_job,:last_job_salary,:phone,:mail
+  attr_accessor :surname,:first_name,:fath,:birth,:address,:passport,:spec,:job_name,:exp
   def initialize (surname, first_name, fath, birth, phone, address, mail, passport, spec, exp, last_job, job_name, last_job_salary)
     @surname=surname
     @first_name=first_name
@@ -24,8 +24,18 @@ class Employee
   def phone_setter(new_phone)
     @phone=new_phone if phone_format(new_phone)
   end
+  def email_setter(new_mail)
+    @mail=new_mail if email_format(new_mail)
+  end
   def number_check(phone)
     if phone=~/^(\+?[7]|[7])([-+()]*[0-9]{3}[-+()]*[0-9]{7}|[0-9]{10}|[-+()]*[0-9]{3}[-+()]*[-+()]*[0-9]{3}[-+()]*[0-9]{4}|[-+()]*[0-9]{3}[-+()]*[-+()]*[0-9]{3}[-+()]*[0-9]{2}[-+()]*[0-9]{2})\b/
+      return true
+    else
+      return false
+    end
+  end
+  def email_check(mail)
+    if mail=~/^[\w\d]+@[\w\d]+\.[\w]+/
       return true
     else
       return false
@@ -40,13 +50,21 @@ class Employee
       puts print "Телефон сотрудника: ",[s[0],s[1,3].join(),s[4,10].join()].join("-")
     end
   end
+  def email_format(mail)
+    if email_check(mail) == false
+      raise StandardError.new "Неверный формат электронной почты"
+    else
+      s=mail.chars.map{|i| i.downcase}.join
+      puts print "E-mail: ", s
+    end
+  end
 
   def output()
     puts print "ФИО работника: ", surname, " ",first_name," ",fath
     puts print "Год рождения работника: ", birth
     phone_setter(phone)
     puts print "Адрес: ", address
-    puts print "E-mail: ",mail
+    email_setter(mail)
     puts print "Серия и номер паспорта: ",passport
     puts print "Специальность: ", spec
     puts print "Название должности: ", job_name
@@ -57,9 +75,7 @@ end
 class TestEmployee<Employee
 end
 
-emp1 = TestEmployee.new("Темный","Кирилл" ,"Владиславович",2000,"79608635782","Сормовская","kirik@mail.ru","03150232620","Программистер",5,"Макдак","Уборщик","5000")
+emp1 = TestEmployee.new("Темный","Кирилл" ,"Владиславович",2000,"79608635782","Сормовская","kirik201100@mail.ru","03150232620","Программистер",5,"Макдак","Уборщик","5000")
 emp2 = TestEmployee.new("Лупа","Пупа" ,"Ахмедович",2000,"79608642149","Тюляева","beep_boop@gmail.com","03150237593","Лингвист",0,"КФС","Кассир","7000")
 emp1.output()
 emp2.output()
-emp1.number_check("7(960)863-5782")
-emp1.phone_format("+7(960)863-57-82")
