@@ -1,6 +1,6 @@
 class Employee
-  attr_reader :last_job,:last_job_salary,:phone,:mail,:surname,:first_name,:fath,:birth
-  attr_accessor :address,:passport,:spec,:job_name,:exp
+  attr_reader :last_job,:last_job_salary,:phone,:mail,:surname,:first_name,:fath,:birth,:passport
+  attr_accessor :address,:spec,:job_name,:exp
   def initialize (surname, first_name, fath, birth, phone, address, mail, passport, spec, exp, last_job, job_name, last_job_salary)
     @surname=surname
     @first_name=first_name
@@ -37,6 +37,9 @@ class Employee
   def birth_date_setter(new_birth)
     @birth=new_birth if date_format(new_birth)
   end
+  def passport_setter(new_passport)
+    @passport=new_passport if passport_format(new_passport)
+  end
   def number_check(phone)
     if phone=~/^(\+?[7]|[7])([-+()]*[0-9]{3}[-+()]*[0-9]{7}|[0-9]{10}|[-+()]*[0-9]{3}[-+()]*[-+()]*[0-9]{3}[-+()]*[0-9]{4}|[-+()]*[0-9]{3}[-+()]*[-+()]*[0-9]{3}[-+()]*[0-9]{2}[-+()]*[0-9]{2})\b/
       return true
@@ -65,7 +68,13 @@ class Employee
       return false
     end
   end
-
+  def passport_check(passport)
+    if passport=~/^(?:\d{4}|\d{2}[\s-]\d{2})\s?(?:\d{6}$|\d{2}[\s-]\d{2}[\s-]\d{2}$)/
+      return true
+    else
+      return false
+    end
+  end
   def phone_format(phone)
     if number_check(phone) == false
       raise StandardError.new "Неверный формат телефона"
@@ -88,8 +97,8 @@ class Employee
     else
       s=surname.delete(" ").split("-").map{|i| i.capitalize}.join("-")
       f=first_name.delete(" ").split("-").map{|i| i.capitalize}.join("-")
-      o=fath.capitalize
-      puts print "Телефон сотрудника: ",s," ",f," ",o
+      o=fath.split(" ")
+      puts print "Телефон сотрудника: ",s," ",f," ",o.first.capitalize, " ", o.last
     end
   end
   def date_format(birth)
@@ -100,13 +109,22 @@ class Employee
       puts print "Дата рождения: ", s
     end
   end
+  def passport_format(passport)
+    if passport_check(passport) == false
+      raise StandardError.new "Неверный формат паспортных данных"
+    else
+      s=passport.delete("-").delete(" ").chars.first(4).join
+      n=passport.delete("-").delete(" ").chars.last(6).join
+      puts print "Серия и номер паспорта: ", s, " ",n
+    end
+  end
   def output()
     name_setter(surname, first_name, fath)
     birth_date_setter(birth)
     phone_setter(phone)
     puts print "Адрес: ", address
     email_setter(mail)
-    puts print "Серия и номер паспорта: ",passport
+    passport_setter(passport)
     puts print "Специальность: ", spec
     puts print "Название должности: ", job_name
     puts print "Стаж работы, прошлое место работы, зарплата на прошлом месте работы: ", exp,", ", last_job,", ",last_job_salary unless exp==0
@@ -116,7 +134,7 @@ end
 class TestEmployee<Employee
 end
 
-emp1 = TestEmployee.new("Темный","Кирилл" ,"Владиславович","2.11.2000","79608635782","Сормовская","kirik201100@mail.ru","03150232620","Программистер",5,"Макдак","Уборщик","5000")
-emp2 = TestEmployee.new("Лупа","Пупа" ,"Ахмедович","11.10.2000","79608642149","Тюляева","beep_boop@gmail.com","03150237593","Лингвист",0,"КФС","Кассир","7000")
+emp1 = TestEmployee.new("Темный","Кирилл" ,"Владиславович","2.11.2000","79608635782","Сормовская","kirik201100@mail.ru","0315 02 32 62","Программистер",5,"Макдак","Уборщик","5000")
+emp2 = TestEmployee.new("Лупа","Пупа" ,"Ахмед соглы","11.10.2000","79608642149","Тюляева","beep_boop@gmail.com","03 20 02-37-59","Лингвист",0,"КФС","Кассир","7000")
 emp1.output()
 emp2.output()
