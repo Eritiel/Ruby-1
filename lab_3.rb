@@ -1,6 +1,6 @@
 class Employee
-  attr_reader :last_job,:last_job_salary,:phone,:mail,:surname,:first_name,:fath
-  attr_accessor :birth,:address,:passport,:spec,:job_name,:exp
+  attr_reader :last_job,:last_job_salary,:phone,:mail,:surname,:first_name,:fath,:birth
+  attr_accessor :address,:passport,:spec,:job_name,:exp
   def initialize (surname, first_name, fath, birth, phone, address, mail, passport, spec, exp, last_job, job_name, last_job_salary)
     @surname=surname
     @first_name=first_name
@@ -34,6 +34,9 @@ class Employee
       @fath=new_fath
     end
   end
+  def birth_date_setter(new_birth)
+    @birth=new_birth if date_format(new_birth)
+  end
   def number_check(phone)
     if phone=~/^(\+?[7]|[7])([-+()]*[0-9]{3}[-+()]*[0-9]{7}|[0-9]{10}|[-+()]*[0-9]{3}[-+()]*[-+()]*[0-9]{3}[-+()]*[0-9]{4}|[-+()]*[0-9]{3}[-+()]*[-+()]*[0-9]{3}[-+()]*[0-9]{2}[-+()]*[0-9]{2})\b/
       return true
@@ -57,9 +60,9 @@ class Employee
   end
   def birth_date_check(birth)
     if birth=~/^(?:0?[1-9]|[12]\d|3[01]).(?:0[1-9]|1[012]).(?:(19|20\d\d$)|(\d{2}$))/
-      puts true
+      return true
     else
-      puts false
+      return false
     end
   end
 
@@ -89,10 +92,17 @@ class Employee
       puts print "Телефон сотрудника: ",s," ",f," ",o
     end
   end
-
+  def date_format(birth)
+    if birth_date_check(birth) == false
+      raise StandardError.new "Неверный формат даты рождения"
+    else
+      s=birth.split(".").map{|i| i.size<2 ? "0"+i : i}.join(".")
+      puts print "Дата рождения: ", s
+    end
+  end
   def output()
     name_setter(surname, first_name, fath)
-    puts print "Год рождения работника: ", birth
+    birth_date_setter(birth)
     phone_setter(phone)
     puts print "Адрес: ", address
     email_setter(mail)
@@ -106,8 +116,7 @@ end
 class TestEmployee<Employee
 end
 
-emp1 = TestEmployee.new("Темный","Кирилл" ,"Владиславович","20.11.2000","79608635782","Сормовская","kirik201100@mail.ru","03150232620","Программистер",5,"Макдак","Уборщик","5000")
+emp1 = TestEmployee.new("Темный","Кирилл" ,"Владиславович","2.11.2000","79608635782","Сормовская","kirik201100@mail.ru","03150232620","Программистер",5,"Макдак","Уборщик","5000")
 emp2 = TestEmployee.new("Лупа","Пупа" ,"Ахмедович","11.10.2000","79608642149","Тюляева","beep_boop@gmail.com","03150237593","Лингвист",0,"КФС","Кассир","7000")
 emp1.output()
 emp2.output()
-emp1.birth_date_check("31.12.55")
