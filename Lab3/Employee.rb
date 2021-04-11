@@ -1,6 +1,6 @@
 class Employee
-  attr_reader :last_job,:last_job_salary,:phone,:mail,:name,:birth,:passport,:address,:spec,:job_name,:exp
-  def initialize (name, birth, phone, address, mail, passport, spec, exp, last_job, job_name, last_job_salary)
+  attr_reader :last_job_spec,:last_job_salary,:phone,:mail,:name,:birth,:passport,:address,:spec,:last_job_name,:exp
+  def initialize (name, birth, phone, address, mail, passport, spec, exp, last_job_name, last_job_spec, last_job_salary)
     self.name=name
     self.birth=birth
     self.phone=phone
@@ -8,14 +8,14 @@ class Employee
     self.mail=mail
     self.passport=passport
     self.spec=spec
-    self.job_name=job_name
-    self.check_exp(exp,last_job,last_job_salary)
+    self.check_exp(exp,last_job_name,last_job_spec,last_job_salary)
   end
-  def check_exp(new_exp,new_last_job,new_last_job_salary)
-    self.exp=new_exp
-    unless new_exp=="0"
-      self.last_job=new_last_job
-      self.last_job_salary=new_last_job_salary
+  def check_exp(exp,last_job_name,last_job_spec,last_job_salary)
+      self.exp=exp
+    unless exp=="0"
+      self.last_job_name=last_job_name
+      self.last_job_spec=last_job_spec
+      self.last_job_salary=last_job_salary
     end
   end
   def phone=(new_phone)
@@ -42,11 +42,11 @@ class Employee
   def exp=(new_exp)
     @exp=new_exp
   end
-  def job_name=(new_job_name)
-    @job_name=new_job_name
+  def last_job_name=(new_last_job_name)
+    @last_job_name=new_last_job_name
   end
-  def last_job=(new_last_job)
-    @last_job=new_last_job
+  def last_job_spec=(new_last_job_spec)
+    @last_job_spec=new_last_job_spec
   end
   def last_job_salary=(new_last_job_salary)
     @last_job_salary=new_last_job_salary
@@ -134,12 +134,11 @@ class Employee
     puts print "ФИО сотрудника: ",name()
     puts print "Дата рождения сотрудника: ",birth()
     puts print "Телефон сотрудника: ",phone()
-    puts print "Адрес: ", address
+    puts print "Адрес: ", address()
     puts print "E-mail: ",mail()
     puts print "Серия и номер пасспорта: ", passport().join(" ")
-    puts print "Специальность: ", spec
-    puts print "Название должности: ", job_name
-    puts print "Стаж работы, прошлое место работы, зарплата на прошлом месте работы: ", exp,", ", last_job,", ",last_job_salary unless exp=="0"
+    puts print "Специальность: ", spec()
+    puts print "Стаж работы, прошлое место работы, должность, зарплата на прошлом месте работы: ", exp(), ", ", last_job_name(), ", ", last_job_spec(), ", ", last_job_salary() unless exp()=="0"
   end
 end
 
@@ -147,7 +146,7 @@ end
 #t_v_l_e = TerminalViewListEmployee.new
 #t_v_l_e.run
 
-#emp1 = TestEmployee.new("темный кирилл владиславович","2.11.2000","89608635782","Сормовская","kirik201100@mail.ru","03 15 02 32 62","Программистер",5,"Макдак","Уборщик","5000")
-#emp2 = TestEmployee.new("Лупа - Пупа  пупа - пупа ахмед соглы","11.10.2000","79608642149","Тюляева","beep_boop@gmail.com","03 20 02-37-59","Лингвист",0,"КФС","Кассир","7000")
+#emp1 = Employee.new("темный кирилл владиславович","2.11.2000","89608635782","Сормовская","kirik201100@mail.ru","03 15 02 32 62","Программистер","5","Макдак","Уборщик","5000")
+#emp2 = Employee.new("Лупа - Пупа  пупа - пупа ахмед соглы","11.10.2000","79608642149","Тюляева","beep_boop@gmail.com","03 20 02-37-59","Лингвист","0","КФС","Кассир","7000")
 #emp1.output()
 #emp2.output()
