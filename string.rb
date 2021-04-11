@@ -37,7 +37,7 @@ def hub
   when "1"
     puts "Задача №1"
     puts "Введите строку: "
-    str=STDIN.gets.chomp
+    str=STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
     rus(str)
     puts(print "Количество русских букв в строке #{str} = ", rus(str))
   when "9"
@@ -139,26 +139,22 @@ sort_words_after_nums
 #Задание №15
 
 #Задача 1
-def sort_mean
-  string=File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
-  s=string.sort_by{|i| ((i.scan(/([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])/).size.to_f/i.scan(/\w/).size.to_f)-(i.scan(/([aeiouy]|[AEIOUY])/).size.to_f/i.scan(/\w/).size.to_f)).abs}
-  puts (print s)
+def sort_mean string
+  s = string.sort_by{|i| ((i.scan(/([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])/).size.to_f/i.scan(/\w/).size.to_f)-(i.scan(/([aeiouy]|[AEIOUY])/).size.to_f/i.scan(/\w/).size.to_f)).abs}
+  return s
 end
-sort_mean
+
 
 #Задача 7
-def sort_var
-  string=File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
-  s=string.sort_by{|i| ((i.scan(/([aeiouy]|[AEIOUY])([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])/).size)-(i.scan(/([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])([aeiouy]|[AEIOUY])/).size)).abs}
-  puts (print s)
+def sort_var string
+  s = string.sort_by{|i| ((i.scan(/([aeiouy]|[AEIOUY])([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])/).size)-(i.scan(/([bcdfghjklmnpqrstwvxz]|[BCDFGHJKLMNPQRSTWVXZ])([aeiouy]|[AEIOUY])/).size)).abs}
+  return s
 end
-sort_var
 
 #Задача 10
 
-def triplet
+def triplet string
   count = 0
-  string = File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
   s = string.sort_by{|i| i.delete(" ").each_char.each_cons(3){|s| p s.join==s.join.reverse}}
   return  s
 end
@@ -166,15 +162,20 @@ end
 def ex_select
   n=ARGV[0]
   case n
-  when 1
+  when "1"
     puts "Задача №1"
-  when 7
+    string=File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+    puts (print sort_mean(string))
+  when "7"
     puts "Задача №7"
-    sort_var()
-  when 10
+    string=File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+    puts (print sort_var(string))
+  when "10"
     puts "Задача №10"
-    triplet()
+    string = File.open('ex_15.txt', 'r:UTF-8') {|file| file.readlines.map {|i| i.strip}.filter{|i|!i.empty?}}
+    puts (print triplet(string))
   else
     puts ("У данной программы 3 варианта параметров: 1, 7, 10")
   end
 end
+ex_select
