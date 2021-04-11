@@ -4,34 +4,46 @@ def num n
   puts(n)
 end
 num 5
+n=252
+puts(print 65.chr)#1
+puts(print 65.denominator)#2
+puts(print 65.gcd 15)#3
+puts(print 65.gcdlcm 155)#4
+puts(print 65.integer?)#5
+puts(print 6.lcm 20)#6
+puts(print 65.next)#7
+puts(print 65.numerator)#8
+puts(print 65.prime_division)#9
+puts(print 65.round)#10
+puts(print 5.times{|i| p i*i})#11
+puts(print 65.to_r)#12
 
 #Задание №6
 def digits_sum n
-  s=n.digits.inject {|sum, num| sum+num}
-  puts(print "Сумма цифр числа #{n}: ", s)
+  s = n.digits.inject {|sum, num| sum+num}
+  return s
 end
+
 
 def digits_mult n #2
-  m=n.digits.inject(1) {|prod, num| prod*=num}
-  puts(print "Произведение цифр числа #{n}: " , m)
+  m = n.digits.inject(1) {|prod, num| prod*=num}
+  return m
 end
 
-digits_sum 252
-digits_mult 589
+
+
 
 def max_dig n
-  ma=n.digits.to_a.max
-
-  puts(print "Максимальная цифра числа #{n}: ",ma)
+  ma = n.digits.to_a.max
+  return ma
 end
+
 
 def min_dig n
-  mi=n.digits.to_a.min
-  puts(print "Минимальная цифра числа #{n}: ", mi)
+  mi = n.digits.to_a.min
+  return mi
 end
 
-max_dig 12985
-min_dig 583
 
 #Задание №7
 
@@ -46,17 +58,17 @@ end
 =end
 def simple_sum n
   sum=n.prime_division.inject(0){|s, num| s+=num[0]}
-  puts (print "Сумма простых делителей числа #{n}: ", sum)
+  return sum
 end
-simple_sum 30
+
 
 #Метод 2
 
 def counter n
     k = n.digits.find_all {|elem| (elem.odd?)&&(elem>3)}
-  puts(print "Количество нечетных цифр числа #{n}, больших 3: ", k.size)
+    return k.size
 end
-counter 55
+
 
 #Метод 3
 
@@ -68,31 +80,49 @@ end
 
 def mult n
       m=(1..n/2).inject(1){|prod, i| prod*=((sum_dig(i)<sum_dig(n))&&((n%i).zero?)) ? i : 1}
-  puts(print "Произведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа #{n}: ", m)
+      return m
 end
-mult 225
+
 
 #Задание №8
 def select
-  puts("Введите число: ")
-  n=gets.to_i
-  puts("Введите номер метода (от 1 до 7): ")
-  nom = gets.to_i
-  case nom
-  when 1
+  method = ARGV[0]
+  case method
+  when "1"
+    puts "Введите число: "
+    n=STDIN.gets.chomp.to_i
     digits_sum(n)
-  when 2
+    puts(print "Сумма цифр числа #{n}: ", digits_sum(n))
+  when "2"
+    puts "Введите число: "
+    n=STDIN.gets.chomp.to_i
     digits_mult(n)
-  when 3
+    puts(print "Произведение цифр числа #{n}: " , digits_mult(n))
+  when "3"
+    puts "Введите число: "
+    n=STDIN.gets.chomp.to_i
     max_dig(n)
-  when 4
+    puts(print "Максимальная цифра числа #{n}: ",max_dig(n))
+  when "4"
+    puts "Введите число: "
+    n=STDIN.gets.chomp.to_i
     min_dig(n)
-  when 5
+    puts(print "Минимальная цифра числа #{n}: ", min_dig(n))
+  when "5"
+    puts "Введите число: "
+    n=STDIN.gets.chomp.to_i
     simple_sum(n)
-  when 6
+    puts (print "Сумма простых делителей числа #{n}: ", simple_sum(n))
+  when "6"
+    puts "Введите число: "
+    n=STDIN.gets.chomp.to_i
     counter(n)
-  when 7
+    puts(print "Количество нечетных цифр числа #{n}, больших 3: ", counter(n))
+  when "7"
+    puts "Введите число: "
+    n=STDIN.gets.chomp.to_i
     mult(n)
+    puts(print "Произведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа #{n}: ", mult(n))
   else
     puts("У данной функции возможны 7 вариантов параметров: ")
     puts("1. Вызов функции поиска суммы цифр числа;")
@@ -102,7 +132,6 @@ def select
     puts ("5. Вызов функции поиска суммы простых делителей числа; ")
     puts ("6. Вызов функции поиска количества нечетных цифр числа, больших 3; ")
     puts ("7. Вызов функции поиска прозведения таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа")
-    select
   end
 end
 select
