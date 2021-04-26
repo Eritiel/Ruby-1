@@ -40,6 +40,7 @@ class TerminalViewListEmployee
     end
       @employee_list.add(employee)
   end
+
   def delete_emp
     employee = @employee_list [0]
     puts(employee.to_s)
@@ -66,16 +67,39 @@ class TerminalViewListEmployee
     file = File.open('emp.txt', 'r:UTF-8') {|file| file.read}
     @employee_list.push(file)
   end
-
+  def search_employee
+          puts "Введите ФИО, электронную почту, телефон или паспорт:"
+          value =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+          if Employee.name_check value
+              name = Employee.name_format(value)
+              emp = @employee_list.search(:name, name)
+          end
+          if Employee.email_check value
+              mail = Employee.email_format(value)
+              emp = @employee_list.search(:mail, mail)
+          end
+          if Employee.number_check value
+              phone = Employee.phone_format(value)
+              emp = @employee_list.search(:phone, phone)
+          end
+          if Employee.passport_check value
+              passport = Employee.passport_format(value)
+              emp = @employee_list.search(:passport, passport)
+          end
+          puts emp.to_s
+      end
 end
-empl = TerminalViewListEmployee.new
+
+
+empl = TerminalViewListEmployee.new()
 def menu emp
   puts "1. Добавить пользователя."
   puts "2. Удалить пользователя"
   puts "3. Посмотреть список пользователей"
   puts "4. Запись в файл"
   puts "5. Чтение из файла"
-  puts "6. Закрыть программу."
+  puts "6. Поиск сотрудника"
+  puts "7. Закрыть программу."
   method =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
   case method
   when "1"
@@ -89,6 +113,8 @@ def menu emp
   when "5"
     emp.file_read()
   when "6"
+    emp.search_employee()
+  when "7"
     exit()
   end
   menu(emp)
