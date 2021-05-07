@@ -4,11 +4,11 @@ require 'openssl'
 require 'base64'
 class TerminalViewListEmployee
   attr_accessor :employee_list
-  def initialize (employee_list = [])
+  def initialize (employee_list = ListEmployee.new())
     @employee_list = employee_list
   end
-  def add_emp_list
 
+  def add_emp_list
     puts "Введите данные сотрудника: "
     puts "ФИО сотрудника: "
     name = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
@@ -42,51 +42,48 @@ class TerminalViewListEmployee
   end
 
   def delete_emp
-    employee = @employee_list [0]
+    puts "Введите имя сотрудника, которого хотите удалить: "
+    target_emp = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+    employee = @employee_list.search(target_emp)
     puts(employee.to_s)
-    puts("Удалить? [Да/Нет]")
+    puts("Вы уверены, что хотите удалить сотрудника? [Да/Нет]")
     answer = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil).downcase
-    @employee_list.delete(employee) if answer == "да"
+    @employee_list.delete_employee(employee) if answer == "да"
   end
 
   def show_emp_list
     puts "Список пользователей: "
-    @employee_list.each_with_index{|emp, i|  "№#{i+1}."; puts emp}
+    puts @employee_list.emp_list
   end
 
   def file_export
-    key = OpenSSL::PKey::RSA.new 2048
-    open 'public.pem', 'w' do |io| io.write key.public_key.to_pem end
-    public_key_file = 'public.pem'
-    public_key = OpenSSL::PKey::RSA.new(File.read(public_key_file))
-    file = File.open('emp.txt', 'a:UTF-8')
-    @employee_list.each_with_index{|emp, index| file.puts "#{index+1}. #{emp}"}
-    file.close
+  @employee_list.write_file()
   end
+
   def file_read
-    file = File.open('emp.txt', 'r:UTF-8') {|file| file.read}
-    @employee_list.push(file)
+  @employee_list.read_file
   end
+
   def search_employee
           puts "Введите ФИО, электронную почту, телефон или паспорт:"
           value =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
           if Employee.name_check value
               name = Employee.name_format(value)
-              emp = @employee_list.search(:name, name)
+              emp = @employee_list.search(name)
           end
           if Employee.email_check value
               mail = Employee.email_format(value)
-              emp = @employee_list.search(:mail, mail)
+              emp = @employee_list.search(mail)
           end
           if Employee.number_check value
               phone = Employee.phone_format(value)
-              emp = @employee_list.search(:phone, phone)
+              emp = @employee_list.search( phone)
           end
           if Employee.passport_check value
               passport = Employee.passport_format(value)
-              emp = @employee_list.search(:passport, passport)
+              emp = @employee_list.search(passport)
           end
-          puts emp.to_s
+          puts emp
       end
 end
 
