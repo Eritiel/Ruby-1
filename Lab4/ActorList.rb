@@ -49,7 +49,7 @@ class ListEmployee
     				file.write(user.name << ' || ' << user.birth << ' || ' << user.phone << ' || ' <<
     				      user.address << ' || ' << passport_code.force_encoding('UTF-8') <<
     					 ' || ' << user.play_name << ' || '<< user.role << ' || ' << user.contract_start << ' || ' << user.contract_end << ' || ' << user.exp)
-    				unless user.exp = "0"
+    				unless user.exp == "0"
     					file.write( user.degree << ' || ' << user.additional_payment)
     				end
     				file.write("\n")
@@ -67,7 +67,7 @@ class ListEmployee
 				user = user.split(' || ')
 				user.map { |elem| elem.force_encoding("UTF-8") }
 				user[4] = decrypt_string(user[4])
-				unless user[9] = "0"
+				unless user[9] == "0"
 					add(Employee.new(user[0], user[1], user[2], user[3],
 						user[4], user[5], user[6], user[7], user[8], user[9], user[10], user[11]))
 				else

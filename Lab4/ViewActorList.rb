@@ -29,8 +29,8 @@ class ViewActorList
     puts "Конец действия контракта #{name}: "
     contract_end =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
     puts "Опыт: "
-    exp=STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil).to_i
-    unless exp == 0 then
+    exp=STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+    unless exp == "0" then
       puts "Профессиональные заслуги: "
       degree= STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
       puts "Дополнительные выплаты: "
