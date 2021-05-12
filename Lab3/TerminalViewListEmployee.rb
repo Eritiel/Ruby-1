@@ -9,7 +9,7 @@ class TerminalViewListEmployee
   end
 
   def add_emp_list
-    puts "Введите данные сотрудника: "
+    puts "Введите данные актера: "
     puts "ФИО сотрудника: "
     name = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
     puts "Дата рождения сотрудника: "
@@ -25,8 +25,8 @@ class TerminalViewListEmployee
     puts "Специальность сотрудника: "
     spec = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
     puts "Опыт: "
-    exp=STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil).to_i
-    unless exp == 0 then
+    exp=STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+    unless exp == "0" then
       puts "Прошлое место работы: "
       last_job_name = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
       puts "Должность на прошлом месте работы: "
@@ -85,6 +85,68 @@ class TerminalViewListEmployee
           end
           puts emp
       end
+      def edit_emp_data
+        show_emp_list()
+        puts "Введите имя сотрудника, данные которого хотите изменить: "
+        target_emp= STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+        emp = @employee_list.search(target_emp)
+        puts "Введите поле для редактирования: "
+        puts "1 - ФИО"
+        puts "2 - Дата рождения"
+        puts "3 - Номер телефона"
+        puts "4 - Адрес "
+        puts "5 - E-mail"
+        puts "6 - Паспортные данные"
+        puts "7 - Специальность"
+        puts "8 - Опыт"
+        unless emp.exp == "0" then
+          puts "9 - Предыдущее место работы"
+          puts "10 - Должность на предыдущем месте работы"
+          puts "11 - Зарплата на прошлом месте работе"
+        else puts "."
+        end
+        arg = STDIN.gets.chomp()
+        case arg
+        when "1"
+          puts "Текущее значение: #{emp.name}"
+          emp.name =  Employee.name_format(STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil))
+        when "2"
+          puts "Текущее значение: #{emp.birth}"
+          emp.birth =  Employee.date_format(STDIN.gets.chomp)
+        when "3"
+          puts "Текущее значение: #{emp.phone}"
+          emp.phone = Employee.phone_format(STDIN.gets.chomp)
+        when "4"
+          puts "Текущее значение: #{emp.address}"
+          emp.address = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+        when "5"
+          puts "Текущее значение: #{emp.mail}"
+          emp.mail = Employee.email_format(STDIN.gets.chomp)
+        when "6"
+          puts "Текущее значение: #{emp.passport}"
+          emp.passport = Employee.passport_format(STDIN.gets.chomp)
+        when "7"
+          puts "Текущее значение: #{emp.spec}"
+          emp.spec = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+        when "8"
+          puts "Текущее значение: #{emp.exp}"
+          emp.exp = STDIN.gets.chomp
+        else
+          unless emp.exp == "0" then
+            case arg
+            when "9"
+              puts "Текущее значение: #{emp.last_job_name}"
+              emp.last_job_name = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+            when "10"
+              puts "Текущее значение: #{emp.last_job_spec}"
+              emp.last_job_spec = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+            when "11"
+              puts "Текущее значение: #{emp.last_job_salary}"
+              emp.last_job_salary = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+            end
+          end
+        end
+      end
 end
 
 
@@ -96,7 +158,8 @@ def menu emp
   puts "4. Запись в файл"
   puts "5. Чтение из файла"
   puts "6. Поиск сотрудника"
-  puts "7. Закрыть программу."
+  puts "7. Изменить данные сотрудника"
+  puts "8. Закрыть программу."
   method =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
   case method
   when "1"
@@ -112,6 +175,8 @@ def menu emp
   when "6"
     emp.search_employee()
   when "7"
+    emp.edit_emp_data()
+  when "8"
     exit()
   end
   menu(emp)

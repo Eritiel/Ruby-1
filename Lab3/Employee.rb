@@ -21,7 +21,7 @@ class Employee
   end
 
   def self.employee_without_experience (name, birth, phone, address, mail, passport, spec)
-    Employee.new(name, birth, phone, address, mail, passport, spec, 0, nil, nil, nil)
+    Employee.new(name, birth, phone, address, mail, passport, spec, "0", nil, nil, nil)
   end
 
   def phone=(new_phone)
@@ -63,7 +63,7 @@ class Employee
   def last_job_spec=(new_last_job_spec)
     @last_job_spec=new_last_job_spec
   end
-  
+
   def last_job_salary=(new_last_job_salary)
     @last_job_salary=new_last_job_salary
   end
