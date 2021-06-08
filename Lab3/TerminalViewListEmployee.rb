@@ -1,5 +1,8 @@
 require_relative 'Employee'
 require_relative 'ListEmployee'
+require 'json'
+require 'yaml'
+require 'mysql2'
 require 'openssl'
 require 'base64'
 class TerminalViewListEmployee
@@ -9,7 +12,7 @@ class TerminalViewListEmployee
   end
 
   def add_emp_list
-    puts "Введите данные актера: "
+    puts "Введите данные сотрудника: "
     puts "ФИО сотрудника: "
     name = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
     puts "Дата рождения сотрудника: "
@@ -53,15 +56,39 @@ class TerminalViewListEmployee
 
   def show_emp_list
     puts "Список пользователей: "
-    puts @employee_list.emp_list
+    puts @employee_list.to_s
   end
 
   def file_export
-  @employee_list.write_file()
+    @employee_list.write_file()
   end
 
   def file_read
-  @employee_list.read_file
+    @employee_list.read_file()
+  end
+
+  def yaml_test_write
+    @employee_list.write_list_YAML()
+  end
+
+  def yaml_test_read
+    @employee_list.read_list_YAML()
+  end
+
+  def json_test_write
+    @employee_list.write_list_JSON()
+  end
+
+  def json_test_read
+    @employee_list.read_list_JSON()
+  end
+
+  def test_write_DB
+    @employee_list.write_list_JSON()
+  end
+
+  def test_read_DB
+    @employee_list.read_DB
   end
 
   def search_employee
@@ -157,10 +184,15 @@ def menu emp
   puts "3. Посмотреть список пользователей"
   puts "4. Запись в файл"
   puts "5. Чтение из файла"
-  puts "6. Поиск сотрудника"
-  puts "7. Изменить данные сотрудника"
-  puts "8. Закрыть программу."
-  method =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+  puts "6. Запись в YAML"
+  puts "7. Чтение из YAML"
+  puts "8. Запись в JSON"
+  puts "9. Чтение из JSON"
+  puts "10. Поиск сотрудника"
+  puts "11. Изменить данные сотрудника"
+  puts "12. Прочитать из БД"
+  puts "13. Закрыть программу."
+  method = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
   case method
   when "1"
     emp.add_emp_list()
@@ -173,10 +205,20 @@ def menu emp
   when "5"
     emp.file_read()
   when "6"
-    emp.search_employee()
+    emp.yaml_test_write()
   when "7"
-    emp.edit_emp_data()
+    emp.yaml_test_read()
   when "8"
+    emp.json_test_write()
+  when "9"
+    emp.json_test_read()
+  when "10"
+    emp.search_employee()
+  when "11"
+    emp.edit_emp_data()
+  when "12"
+    emp.test_read_DB()
+  when "13"
     exit()
   end
   menu(emp)

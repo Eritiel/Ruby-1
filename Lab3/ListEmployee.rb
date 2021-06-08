@@ -1,19 +1,43 @@
 require_relative "Employee"
+require_relative "WorkDB"
 require 'openssl'
 require 'base64'
+require 'yaml'
+require 'json'
 class ListEmployee
-  attr_accessor :emp_list
   def initialize
     @emp_list = []
   end
 
   def add(employee)
     @emp_list << employee
+    add_to_DB(employee)
   end
+
+  def read_DB
+    @emp_list = WorkDB.get_instance.read_list
+  end
+
+  def add_to_DB(emp)
+     WorkDB.get_instance.add_employee(emp)
+  end
+
+  def delete_from_DB(emp)
+     WorkDB.get_instance.delete_employee(emp)
+  end
+
+   def change_node(emp)
+    WorkDB.get_instance.change_emp(emp)
+  end
+
+  def to_s
+       @emp_list.each{|user| user.to_s}
+   end
 
   def delete_employee(employee)
     @emp_list.delete(employee)
   end
+
 
   def search(data)
         @emp_list.each{ |emp| if [emp.name, emp.mail, emp.phone, emp.passport].include? data
@@ -44,7 +68,7 @@ class ListEmployee
       end
 
       def write_file
-        file = File.open('emp.txt', 'w:utf-8') {|file|
+        file = File.open('emp.txt', 'w:UTF8') {|file|
             @emp_list.each {|user|
               passport_code = encrypt_string(user.passport.join)
               file.write(user.name << ' || ' << user.birth << ' || ' << user.phone << ' || ' <<
@@ -58,11 +82,59 @@ class ListEmployee
           }
         end
 
+        def write_list_YAML
+          File.open("employee.yml", "w:utf-8") { |file| file.write(@emp_list.to_yaml) }
+        end
+
+        def read_list_YAML
+          @emp_list = YAML::load(File.open('employee.yml', 'r:UTF-8'))
+        end
+
+
+      def write_list_JSON
+  		    File.open("employee.json","w:UTF-8") do |file|
+  			       tempHash = {}
+  			          @emp_list.each_with_index do |emp, ind|
+  				              tempHash[ind] = {
+  					                   "fullname": emp.name,
+                      					"datebirth": emp.birth,
+                      					"phone": emp.phone,
+                      					"address": emp.address,
+                      					"email": emp.mail,
+                      					"passport": emp.passport.join,
+                      					"speciality": emp.spec,
+                      					"experience": emp.exp,
+                      					"last_job": emp.last_job_name,
+                      					"last_job_spec": emp.last_job_spec,
+                      					"last_job_salary": emp.last_job_salary
+  				                        }
+  			                      end
+  			file.write(JSON.pretty_generate(tempHash))
+  		end
+	   end
+
+    def read_list_JSON
+		    File.open("employee.json", 'r:UTF-8') do |file|
+			       data = JSON.parse(file.read)
+			          data.each do |key, value|
+				              if value["exp"]!='0'
+					                   emp = Employee.new(value["fullname"], value["datebirth"], value["phone"], value["address"],
+														 value["email"], value["passport"], value["speciality"], value["experience"],
+														 value["last_job"], value["last_job_spec"], value["last_job_salary"])
+				                       else
+					                            emp = Employee.new(value["full"], value["datebirth"], value["phone"], value["address"],
+														 value["email"], value["passport"], value["speciality"], value["experience"])
+				                       end
+			add(emp)
+			end
+		end
+	end
+
       def read_file
         file = File.open('emp.txt', 'r:UTF-8')
 			  users = file.read
 			  users = users.force_encoding("cp866")
-			  users = users.split("\n\n")
+			  users = users.split("\n")
 			  users.each do |user|
 				user = user.split(' || ')
 				user.map { |elem| elem.force_encoding("UTF-8") }

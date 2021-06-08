@@ -1,6 +1,7 @@
 class Employee
-  attr_reader :last_job_spec,:last_job_salary,:phone,:mail,:name,:birth,:passport,:address,:spec,:last_job_name,:exp
-  def initialize(name, birth, phone, address, mail, passport, spec, exp, last_job_name, last_job_spec, last_job_salary)
+  attr_reader :iD, :last_job_spec,:last_job_salary,:phone,:mail,:name,:birth,:passport,:address,:spec,:last_job_name,:exp
+  def initialize(iD, name, birth, phone, address, mail, passport, spec, exp, last_job_name, last_job_spec, last_job_salary)
+    @iD = iD
     self.name= name
     self.birth= birth
     self.phone= phone

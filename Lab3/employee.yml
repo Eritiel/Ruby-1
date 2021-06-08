@@ -1,0 +1,15 @@
+---
+- !ruby/object:Employee
+  name: Темный Кирилл Владиславович
+  birth: 20.11.00
+  phone: 7-960-8635782
+  address: С
+  mail: k@m.r
+  passport:
+  - '0320'
+  - '456789'
+  spec: П
+  exp: '15'
+  last_job_name: Г
+  last_job_spec: П
+  last_job_salary: '50000'
