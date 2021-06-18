@@ -37,18 +37,18 @@ class WorkDB
      list_emp
    end
 
-   def add_employee(emp)
-       if emp.exp !='0'
-         @connection.query("INSERT INTO `Staff`.`employees` (`name` ,`birth_date` ,`phone` ,`address` ,`email` ,
+   def add_employee(id, name, birth, phone, address, mail, passport, spec, exp, last_job_name, last_job_spec, last_job_salary)
+       if exp !='0'
+         @connection.query("INSERT INTO `Staff`.`employees` (`employee_id`, `name` ,`birth_date` ,`phone` ,`address` ,`email` ,
                                  `passport` ,`speciality` ,`experience`, `last_job_name` ,`last_job_spec` ,`last_job_salary`)
-                               VALUES ('#{emp.name}', '#{emp.birth}', '#{emp.phone}', '#{emp.address}', '#{emp.mail}',
-                                 '#{emp.passport}', '#{emp.spec}', #{emp.exp},
-                                 '#{emp.last_job_name}', '#{emp.last_job_spec}', '#{emp.last_job_salary}')")
+                               VALUES ('#{id}','#{name}', '#{birth}', '#{phone}', '#{address}', '#{mail}',
+                                 '#{passport}', '#{spec}', #{exp},
+                                 '#{last_job_name}', '#{last_job_spec}', '#{last_job_salary}')")
          else
-           @connection.query("INSERT INTO `Staff`.`employees` (`name` ,`birth_date` ,`phone` ,`address` ,`email` ,
+           @connection.query("INSERT INTO `Staff`.`employees` (`employee_id`, `name` ,`birth_date` ,`phone` ,`address` ,`email` ,
                                    `passport` ,`speciality` ,`experience`)
-                                 VALUES ('#{emp.name}', '#{emp.birth}', '#{emp.phone}', '#{emp.address}', '#{emp.mail}',
-                                   '#{emp.passport}', '#{emp.spec}', #{emp.exp})")
+                                 VALUES ('#{id}', '#{name}', '#{birth}', '#{phone}', '#{address}', '#{mail}',
+                                   '#{passport}', '#{spec}', #{exp})")
        end
      end
 

@@ -1,6 +1,7 @@
 ---
 - !ruby/object:Employee
-  name: Темный Кирилл Владиславович
+  id: 0
+  name: Тем Кир Влад
   birth: 20.11.00
   phone: 7-960-8635782
   address: С
@@ -8,8 +9,8 @@
   passport:
   - '0320'
   - '456789'
-  spec: П
-  exp: '15'
-  last_job_name: Г
-  last_job_spec: П
-  last_job_salary: '50000'
+  spec: Программист
+  exp: 0
+  last_job_name:
+  last_job_spec:
+  last_job_salary:

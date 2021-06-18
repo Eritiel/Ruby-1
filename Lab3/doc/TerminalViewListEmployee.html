@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TerminalViewListEmployee - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_emp_list">#add_emp_list</a>
+    
+    <li ><a href="#method-i-delete_emp">#delete_emp</a>
+    
+    <li ><a href="#method-i-edit_emp_data">#edit_emp_data</a>
+    
+    <li ><a href="#method-i-file_export">#file_export</a>
+    
+    <li ><a href="#method-i-file_read">#file_read</a>
+    
+    <li ><a href="#method-i-json_test_read">#json_test_read</a>
+    
+    <li ><a href="#method-i-json_test_write">#json_test_write</a>
+    
+    <li ><a href="#method-i-search_employee">#search_employee</a>
+    
+    <li ><a href="#method-i-show_emp_list">#show_emp_list</a>
+    
+    <li ><a href="#method-i-test_read_DB">#test_read_DB</a>
+    
+    <li ><a href="#method-i-test_write_DB">#test_write_DB</a>
+    
+    <li ><a href="#method-i-yaml_test_read">#yaml_test_read</a>
+    
+    <li ><a href="#method-i-yaml_test_write">#yaml_test_write</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TerminalViewListEmployee">
+  <h1 id="class-TerminalViewListEmployee" class="class">
+    class TerminalViewListEmployee
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-employee_list" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">employee_list</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(employee_list = ListEmployee.new())</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> (<span class="ruby-identifier">employee_list</span> = <span class="ruby-constant">ListEmployee</span>.<span class="ruby-identifier">new</span>())
+  <span class="ruby-ivar">@employee_list</span> = <span class="ruby-identifier">employee_list</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_emp_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_emp_list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_emp_list-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_emp_list</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Введите данные сотрудника: &quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;ФИО сотрудника: &quot;</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Дата рождения сотрудника: &quot;</span>
+  <span class="ruby-identifier">birth</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Телефон сотрудника: &quot;</span>
+  <span class="ruby-identifier">phone</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Адрес сотрудника: &quot;</span>
+  <span class="ruby-identifier">address</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Email сотрудника: &quot;</span>
+  <span class="ruby-identifier">mail</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Паспортные данные сотрудника: &quot;</span>
+  <span class="ruby-identifier">passport</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Специальность сотрудника: &quot;</span>
+  <span class="ruby-identifier">spec</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Опыт: &quot;</span>
+  <span class="ruby-identifier">exp</span>=<span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">exp</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Прошлое место работы: &quot;</span>
+    <span class="ruby-identifier">last_job_name</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Должность на прошлом месте работы: &quot;</span>
+    <span class="ruby-identifier">last_job_spec</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Заработная плата на прошлом месте работы: &quot;</span>
+    <span class="ruby-identifier">last_job_salary</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+
+    <span class="ruby-identifier">employee</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">birth</span>, <span class="ruby-identifier">phone</span>, <span class="ruby-identifier">address</span>, <span class="ruby-identifier">mail</span>, <span class="ruby-identifier">passport</span>, <span class="ruby-identifier">spec</span>, <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">last_job_name</span>, <span class="ruby-identifier">last_job_spec</span>, <span class="ruby-identifier">last_job_salary</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">employee</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">employee_without_experience</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">birth</span>, <span class="ruby-identifier">phone</span>, <span class="ruby-identifier">address</span>, <span class="ruby-identifier">mail</span>, <span class="ruby-identifier">passport</span>, <span class="ruby-identifier">spec</span>)
+  <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">employee</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_emp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_emp</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_emp-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_emp</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Введите имя сотрудника, которого хотите удалить: &quot;</span>
+  <span class="ruby-identifier">target_emp</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">employee</span> = <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">target_emp</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">employee</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;Вы уверены, что хотите удалить сотрудника? [Да/Нет]&quot;</span>)
+  <span class="ruby-identifier">answer</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>).<span class="ruby-identifier">downcase</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">delete_employee</span>(<span class="ruby-identifier">employee</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">answer</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;да&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit_emp_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_emp_data</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="edit_emp_data-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit_emp_data</span>
+  <span class="ruby-identifier">show_emp_list</span>()
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Введите имя сотрудника, данные которого хотите изменить: &quot;</span>
+  <span class="ruby-identifier">target_emp</span>= <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">emp</span> = <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">target_emp</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Введите поле для редактирования: &quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;1 - ФИО&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;2 - Дата рождения&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;3 - Номер телефона&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;4 - Адрес &quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;5 - E-mail&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;6 - Паспортные данные&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;7 - Специальность&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;8 - Опыт&quot;</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">exp</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;9 - Предыдущее место работы&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;10 - Должность на предыдущем месте работы&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;11 - Зарплата на прошлом месте работе&quot;</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">arg</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>()
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">arg</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;1&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.name}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">name</span> =  <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">name_format</span>(<span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>))
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;2&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.birth}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">birth</span> =  <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">date_format</span>(<span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;3&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.phone}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">phone</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">phone_format</span>(<span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;4&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.address}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">address</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;5&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.mail}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">mail</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">email_format</span>(<span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;6&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.passport}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">passport</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">passport_format</span>(<span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;7&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.spec}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">spec</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;8&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.exp}&quot;</span>
+    <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">exp</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">exp</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">arg</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;9&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.last_job_name}&quot;</span>
+        <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">last_job_name</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;10&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.last_job_spec}&quot;</span>
+        <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">last_job_spec</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;11&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Текущее значение: #{emp.last_job_salary}&quot;</span>
+        <span class="ruby-identifier">emp</span>.<span class="ruby-identifier">last_job_salary</span> = <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_export" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_export</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file_export-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">file_export</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">write_file</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_read</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file_read-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">file_read</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">read_file</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_test_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_test_read</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json_test_read-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">json_test_read</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">read_list_JSON</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_test_write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_test_write</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json_test_write-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">json_test_write</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">write_list_JSON</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-search_employee" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_employee</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="search_employee-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">search_employee</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Введите ФИО, электронную почту, телефон или паспорт:&quot;</span>
+        <span class="ruby-identifier">value</span> =  <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;cp866&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>, <span class="ruby-value">replace:</span> <span class="ruby-keyword">nil</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">name_check</span> <span class="ruby-identifier">value</span>
+            <span class="ruby-identifier">name</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">name_format</span>(<span class="ruby-identifier">value</span>)
+            <span class="ruby-identifier">emp</span> = <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">name</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">email_check</span> <span class="ruby-identifier">value</span>
+            <span class="ruby-identifier">mail</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">email_format</span>(<span class="ruby-identifier">value</span>)
+            <span class="ruby-identifier">emp</span> = <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">mail</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">number_check</span> <span class="ruby-identifier">value</span>
+            <span class="ruby-identifier">phone</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">phone_format</span>(<span class="ruby-identifier">value</span>)
+            <span class="ruby-identifier">emp</span> = <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">search</span>( <span class="ruby-identifier">phone</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">passport_check</span> <span class="ruby-identifier">value</span>
+            <span class="ruby-identifier">passport</span> = <span class="ruby-constant">Employee</span>.<span class="ruby-identifier">passport_format</span>(<span class="ruby-identifier">value</span>)
+            <span class="ruby-identifier">emp</span> = <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">passport</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">emp</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show_emp_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_emp_list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show_emp_list-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show_emp_list</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Список пользователей: &quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_read_DB" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_read_DB</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_read_DB-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_read_DB</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">read_DB</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_write_DB" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_write_DB</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_write_DB-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_write_DB</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">write_list_JSON</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-yaml_test_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">yaml_test_read</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="yaml_test_read-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yaml_test_read</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">read_list_YAML</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-yaml_test_write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">yaml_test_write</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="yaml_test_write-source">
+            <pre><span class="ruby-comment"># File TerminalViewListEmployee.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yaml_test_write</span>
+  <span class="ruby-ivar">@employee_list</span>.<span class="ruby-identifier">write_list_YAML</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

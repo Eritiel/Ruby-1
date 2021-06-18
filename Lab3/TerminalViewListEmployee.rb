@@ -37,9 +37,9 @@ class TerminalViewListEmployee
       puts "Заработная плата на прошлом месте работы: "
       last_job_salary = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
 
-      employee = Employee.new(name, birth, phone, address, mail, passport, spec, exp, last_job_name, last_job_spec, last_job_salary)
+      employee = Employee.new(id, name, birth, phone, address, mail, passport, spec, exp, last_job_name, last_job_spec, last_job_salary)
     else
-      employee = Employee.employee_without_experience(name, birth, phone, address, mail, passport, spec)
+      employee = Employee.employee_without_experience(id, name, birth, phone, address, mail, passport, spec)
     end
       @employee_list.add(employee)
   end
@@ -182,16 +182,14 @@ def menu emp
   puts "1. Добавить пользователя."
   puts "2. Удалить пользователя"
   puts "3. Посмотреть список пользователей"
-  puts "4. Запись в файл"
-  puts "5. Чтение из файла"
-  puts "6. Запись в YAML"
-  puts "7. Чтение из YAML"
-  puts "8. Запись в JSON"
-  puts "9. Чтение из JSON"
-  puts "10. Поиск сотрудника"
-  puts "11. Изменить данные сотрудника"
-  puts "12. Прочитать из БД"
-  puts "13. Закрыть программу."
+  puts "4. Запись в YAML"
+  puts "5. Чтение из YAML"
+  puts "6. Запись в JSON"
+  puts "7. Чтение из JSON"
+  puts "8. Поиск сотрудника"
+  puts "9. Изменить данные сотрудника"
+  puts "10. Прочитать из БД"
+  puts "11. Закрыть программу."
   method = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
   case method
   when "1"
@@ -201,24 +199,20 @@ def menu emp
   when "3"
     emp.show_emp_list()
   when "4"
-    emp.file_export()
-  when "5"
-    emp.file_read()
-  when "6"
     emp.yaml_test_write()
-  when "7"
+  when "5"
     emp.yaml_test_read()
-  when "8"
+  when "6"
     emp.json_test_write()
-  when "9"
+  when "7"
     emp.json_test_read()
-  when "10"
+  when "8"
     emp.search_employee()
-  when "11"
+  when "9"
     emp.edit_emp_data()
-  when "12"
+  when "10"
     emp.test_read_DB()
-  when "13"
+  when "11"
     exit()
   end
   menu(emp)
